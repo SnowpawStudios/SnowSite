@@ -1,0 +1,63 @@
+
+h1{
+color: black;
+font-size: 3rem;
+margin: 0px;
+text-align: center;
+
+
+}
+ul{
+ 
+ margin:0;
+ padding:5px;
+ list-style-type: none;
+ text-align: left;
+}
+
+
+#titleDiv{
+  /* grid-area: title; */
+  font-family: 'Mansalva', cursive;
+  background-color: lightgray;
+ 
+}
+#projectsDiv{
+  /* grid-area: project; */
+  text-align: center;
+  height: 200px;
+
+}
+
+.games{
+  /* grid-area:main; */
+  background-color: lightgray;
+  height: 200px;
+  
+}
+.websites{
+height: 200px;
+
+}
+.footer{
+  /* grid-area: footer; */
+  text-align: center;
+   background-color: lightgray;
+   height:200px;
+  
+}
+
+.container{
+  display:grid;
+  
+  grid-template-columns:  1fr;
+  /* grid-template-rows: auto; */
+  gap: 2px;
+  
+
+}
+
+.container> div{
+  /* border:2px solid;
+  border-radius: 5px; */
+}
