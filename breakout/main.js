@@ -11,9 +11,14 @@ let ballY = 75;
 let ballSpeedX = 5;
 let ballSpeedY = 3;
 
-const BRICK_W;
-const BRICK_H;
-const BRICK_COUNT;
+const BRICK_W = 80;
+const BRICK_H = 20;
+const BRICK_GAP = 4;
+const BRICK_ROWS = 14;
+const BRICK_COLS = 10;
+
+
+let brickGrid = new Array(BRICK_COLS * BRICK_ROWS);
 
 const PADDLE_WIDTH = 100;
 const PADDLE_THICKNESS = 10;
@@ -31,6 +36,7 @@ window.onload = function () {
   setInterval(updateAll, 1000 / framesPerSecond);
 
   canvas.addEventListener("mousemove", updateMousePos);
+  brickReset();
 
 }
 
@@ -90,8 +96,29 @@ function moveAll() {
   }
 }
 
-function drawBrick(){
-  colorRect();
+function brickReset() {
+  for (let i = 0; i < BRICK_COLS * BRICK_ROWS; i++) {
+
+    brickGrid[i] = true;
+
+
+  }
+
+}
+
+function drawBricks() {
+  for (let rows = 0; rows < BRICK_ROWS; rows++) {
+    for (let cols = 0; cols < BRICK_COLS; cols++) {
+      let arrayIndex = rowColToArrayIndex(cols, rows);
+      if (brickGrid[arrayIndex]) {
+        colorRect(BRICK_W * cols, BRICK_H * rows, BRICK_W - BRICK_GAP, BRICK_H - BRICK_GAP, "blue");
+      }
+    }
+  }
+}
+
+function rowColToArrayIndex(col, row) {
+  return col + BRICK_COLS * row;
 }
 
 function drawAll() {
@@ -99,9 +126,16 @@ function drawAll() {
   colorCircle(ballX, ballY, 10, "white"); //draw ball
 
   colorRect(paddleX, canvas.height - PADDLE_DIST_FROM_BOTTOM, PADDLE_WIDTH, PADDLE_THICKNESS, "white"); //draw paddle
+  drawBricks();
 
-  colorText(`${mouseX}, ${mouseY}`, mouseX, mouseY, "yellow");
+  let mouseBrickCol = Math.floor(mouseX / BRICK_W);
+  let mouseBrickRow = Math.floor(mouseY / BRICK_H);
+  let brickIndexUnderMouse = rowColToArrayIndex(mouseBrickCol, mouseBrickRow);
+  colorText(`${mouseBrickCol}, ${mouseBrickRow} : ${brickIndexUnderMouse}`, mouseX, mouseY, "yellow");
 
+  if (brickIndexUnderMouse >= 0 && brickIndexUnderMouse < BRICK_COLS * BRICK_ROWS) {
+    brickGrid[brickIndexUnderMouse] = false;
+  }
 }
 
 function colorRect(topLeftX, topLeftY, boxWidth, boxHeight, fillColor) {
