@@ -79,6 +79,15 @@ function moveAll() {
     ballReset();
   }
 
+  let ballBrickCol = Math.floor(ballX / BRICK_W);
+  let ballBrickRow = Math.floor(ballY / BRICK_H);
+  let brickIndexUnderBall = rowColToArrayIndex(ballBrickCol, ballBrickRow);
+  colorText(`${ballBrickCol}, ${ballBrickRow} : ${brickIndexUnderBall}`, mouseX, mouseY, "yellow");
+
+  if (brickIndexUnderBall >= 0 && brickIndexUnderBall < BRICK_COLS * BRICK_ROWS) {
+    brickGrid[brickIndexUnderBall] = false;
+  }
+
   let paddleTopEdgeY = canvas.height - PADDLE_DIST_FROM_BOTTOM;
   let paddleBottomEdgeY = paddleTopEdgeY + PADDLE_THICKNESS;
   let paddleLeftEdgeX = paddleX;
@@ -128,15 +137,10 @@ function drawAll() {
   colorRect(paddleX, canvas.height - PADDLE_DIST_FROM_BOTTOM, PADDLE_WIDTH, PADDLE_THICKNESS, "white"); //draw paddle
   drawBricks();
 
-  let mouseBrickCol = Math.floor(mouseX / BRICK_W);
-  let mouseBrickRow = Math.floor(mouseY / BRICK_H);
-  let brickIndexUnderMouse = rowColToArrayIndex(mouseBrickCol, mouseBrickRow);
-  colorText(`${mouseBrickCol}, ${mouseBrickRow} : ${brickIndexUnderMouse}`, mouseX, mouseY, "yellow");
 
-  if (brickIndexUnderMouse >= 0 && brickIndexUnderMouse < BRICK_COLS * BRICK_ROWS) {
-    brickGrid[brickIndexUnderMouse] = false;
-  }
+
 }
+
 
 function colorRect(topLeftX, topLeftY, boxWidth, boxHeight, fillColor) {
   canvasContext.fillStyle = fillColor;
