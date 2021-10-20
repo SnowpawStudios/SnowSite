@@ -1,52 +1,39 @@
 *{
   margin:0;
   padding:0;
-  font-family: 'VT323', monospace;
+  font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
 }
 body{
-  /* background-image: url("./img/background.jpg");
-  background-size: cover;  */
-  /* background-color:#262929; */
-  /* background-color: #121212; */
-  background-color: black;
+  background-color: rgb(109, 109, 109);
   background-image: url("./img/paw-print3.png");
   background-size: contain;
-  
-  
 }
+
 .header{
-  
-  height: 100vh;
-  background: url("./img/beast.jpeg")center/cover fixed no-repeat;
-  background-size: cover;
-  position:relative;
-  display:grid;
-  grid-template-columns: 1fr;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
   
 }
-.beast{
-  width:100%;
-  height:auto;
-  overflow:visible;
+  .title{
+  font-size: 3rem; 
+  color: #ECF0F1;
+  padding: 10px; 
 }
-.title-image-container{
-overflow:visible;
-height:100vh;
-/* z-index:5; */
+a{
+  color: #fff;
 }
+
 .navBtn{
-  position: fixed;
-  top: 5%;
-  right: 5%;
+  /* text-align: center; */
   cursor: pointer;
   animation-name:pulse;
   animation-duration:2s;
   animation-iteration-count: infinite;
   z-index: 0;
 }
-
+.navBtn img{
+  width: 30px;
+}
 @keyframes pulse{
   0%{
     transform:scale(1);
@@ -58,7 +45,7 @@ height:100vh;
   }
 }
 
-.nav{
+/* .nav{
   position: fixed;
   top:0;
   left:0;
@@ -68,16 +55,15 @@ height:100vh;
   width:0;
   overflow: hidden;
   transition:all 0.5s ease-in-out;
-}
-.nav-show{
+} */
+/* .nav-show{
   width:10rem;
 }
 .nav-links{
   list-style-type:none;
-}
+} */
 
-.nav-single-link{
-  font-family: 'Long Cang', cursive;
+/* .nav-single-link{
   display: block;
   text-decoration: none;
   text-transform: capitalize;
@@ -86,49 +72,23 @@ height:100vh;
   padding:0.5rem 1rem;
   transition: all 0.5s ease-in-out;
 
-}
+} */
 
-h1{
-/* font-family: 'VT323', monospace; */
-font-family: 'Mansalva', cursive; 
+/* h1{ 
 text-align: center;
-}
+} */
 
-
-
-.title{
-  /* grid-area: title; */
-  font-family: 'Mansalva', cursive; 
-  /* font-family: 'VT323', monospace;*/
-  padding: 18rem 2rem;
-  text-align: center;
-  text-justify: center;
-  font-size: 6rem; 
-  /* background-image: url("./img/background.jpg"); */
-  /* background-image: url("./img/paws.jpg"); */
-  /* background-size: cover; */
-  /* background-color:#262929; */
-  /* background-color:#121212; */
-  /* color:#ECF0F1;   */
-  /* color:#262929;  */
-  /* color: rgba(250, 250, 132); */
-  color: #ECF0F1;
- 
-}
 .section-title{
-  /* background-color:#7B9BB2; */
+  text-align: center;
   background-color: rgb(53, 53, 53, 0.8);
   color:#ECF0F1;
 }
 
-.retro-games{
+/* .retro-games{
   display:grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 16px;
-  padding: 2rem 2rem;
-  /* background-color:#BDC3C7; */
-  
-  
+  padding: 2rem 2rem;  
 }
 .framework-games{
   display:grid;
@@ -154,11 +114,8 @@ text-align: center;
   align-items: center;
 }
 .card{
-  /* background-color:#BDC3C7; */
-  /* background-color:#262929; */
   background-color:rgb(88, 87, 90, 0.6);
   z-index:10;
-  
   color: #ECF0F1;
 }
 
@@ -175,7 +132,7 @@ text-align: center;
 .websites{
   
 
-}
+} */
 .footer{
   text-align: center;
   
